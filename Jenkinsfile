@@ -1,5 +1,5 @@
 pipeline {
-  agent packer_node
+  agent any
   stages {
     stage('Cloning Git') {
       steps {
