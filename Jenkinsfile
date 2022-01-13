@@ -14,9 +14,7 @@ pipeline {
     }
     stage('Building image') {
       steps{
-        script {
-          dockerImage = docker.build Name
-        }
+        sh 'docker build -t nickpatne/flask_image:latest .'
       }
     }
     stage('Publish image to Docker Hub') {
