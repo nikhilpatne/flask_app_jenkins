@@ -1,15 +1,15 @@
 pipeline {
   environment {
-        registry = "harshadadeokar"
-        DOCKERHUB_CREDENTIALS=credentials('docker')
+        registry = "nickpatne"
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
         dockerImage = ''
-        Name = "harshadadeokar/flask_image"
+        Name = "nickpatne/flask_image"
   }
   agent any
   stages {
     stage('Cloning Git') {
       steps {
-        git 'http://gsgit.gslab.com/deokarharshada/simpleflaskapp.git'
+        git 'https://github.com/nikhilpatne/flask_app_jenkins.git'
       }
     }
     stage('Building image') {
@@ -22,8 +22,8 @@ pipeline {
     stage('Publish image to Docker Hub') {
           
             steps {
-        withDockerRegistry([ credentialsId: "docker", url: "" ]) {
-          sh  'docker push harshadadeokar/flask_image:latest'
+        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+          sh  'docker push nickpatne/flask_image:latest'
          
         }
                   
