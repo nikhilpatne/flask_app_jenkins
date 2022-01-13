@@ -1,10 +1,4 @@
 pipeline {
-  environment {
-        registry = "nickpatne"
-        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-        dockerImage = ''
-        Name = "nickpatne/flask_image"
-  }
   agent any
   stages {
     stage('Cloning Git') {
